@@ -1,0 +1,27 @@
+{
+    "experiment_name": "HL_base on deepglobe",
+    
+    "dataset": {
+        "name": "deepglobe",
+        "root_path": "/home/u2508183004/zyn/datasets",
+        "input_size": 1024,
+        "batch_size": 16,
+        "num_workers": 8
+    },
+
+    "model": {
+        "name": "HL_base",
+        "num_classes": 1
+    },
+
+    "training": {
+        "seed": 3407,
+        "epochs": 180,
+        "lr": 0.0002,
+        "loss_type": "BCE_Dice",
+        "weight_decay": 0.01,
+        "lr_factor": 0.5,
+        "lr_patience": 8,
+        "early_stop_patience": 50
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "dataset": {
+        "name": "Mass",
+        "root_path": "/home/u2508183004/zyn/datasets",
+        "input_size": 1024,
+        "batch_size": 8,
+        "num_workers": 8
+    },
+    "model": {
+        "name": "DC_v1",
+        "num_classes": 1,
+        "n_channels": 3,
+        "pretrained": true,
+        "return_aux": false,
+
+        "dino_model_name": "dinov3_vits16",
+        "dino_repo_path": "/home/u2508183004/zyn/SEG/dinounet/dinov3",
+        "dino_ckpt_path": "/home/u2508183004/zyn/SEG/weight/dinov3/dinov3_vits16_pretrain_lvd1689m-08c60483.pth",
+        "dino_layers": [2, 5, 8, 11],
+        "dino_embed_dim": 384,
+        "dino_patch_size": 16,
+        "dino_normalize": false,
+
+        "adapter_channels": 128,
+        "adapter_bottleneck": 64,
+        "adapter_init_scale": 0.1,
+
+        "decoder_channels": [256, 128, 64, 32, 32],
+        "train_dino_branch_adapters": false
+    },
+    "training": {
+        "seed": 3407,
+        "epochs": 150,
+        "lr": 0.0001,
+        "weight_decay": 0.0001,
+        "lr_factor": 0.5,
+        "lr_patience": 8,
+        "early_stop_patience": 50,
+        "threshold": 0.5
+    }
+}
